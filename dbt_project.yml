@@ -1,0 +1,27 @@
+name: 'multi_api_project'
+version: '1.0.0'
+config-version: 2
+
+# Ce nom doit correspondre à celui dans ton profiles.yml
+profile: 'multi_api_project'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  multi_api_project:
+    # Configuration par défaut pour tous les modèles
+    +incremental_strategy: "merge"
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

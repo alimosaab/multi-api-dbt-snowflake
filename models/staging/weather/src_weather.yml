@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: weather_source
+    database: RAW
+    schema: WEATHER
+    tables:
+      - name: raw_forecast
+        description: "Données brutes JSON envoyées par le script Python"
+        columns:
+          - name: json_data
+            description: "Le payload complet de l'API Open-Météo"
